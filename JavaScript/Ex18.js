@@ -5,8 +5,8 @@
 
 
 mergeObjects = (obj1 ,obj2)=>{
-obj3 =  Object.assign(obj1,obj2);
-console.log(obj3);
+obj2 =  Object.assign(obj1,obj2);
+console.log(obj2);
 }
 
 mergeObjects({a:1, b:3}, {c:3, d:4});
