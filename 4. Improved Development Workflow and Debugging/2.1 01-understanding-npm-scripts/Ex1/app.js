@@ -1,10 +1,10 @@
-const { log } = require('console');
+
 const http = require('http');
 
 const server = http.createServer(function(request, response) {
   
     response.writeHead(200, {"Content-Type": "text/plain"});
-    setInterval(function(){ 
+    setInterval(function() { 
         response.write("Hello-World");
         response.end();
     }, 5000);
