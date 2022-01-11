@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    </head>
+    <body>
+<header>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBePYKCTc5w4r93fq7rlGFyRJ18ppm8lTIBQ&usqp=CAU" width="30" height="30" class="d-inline-block align-top" alt="">
+          HOME
+        </a>
+      
+    <% if(users.length == 0) { %>
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page"  href="/login">Login</a>
+        </li>
+        <% }%>
+        <% if(users.length > 0) { %>
+        <% for(let user of users) { %>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page"><%= user.username %></a>
+            </li>
+        <% } %>
+        <% }%>
+    </nav>  
+</header>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div class="top" style="margin-top: 100px;">
+    <p>Title: xyz</p>
+    <p>Description: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt doloribus optio rerum non minima veritatis? Quos dolore sit ad nostrum sed corporis culpa nihil, consequatur nesciunt porro maxime ratione suscipit?</p>
+</div>
+
+
+<footer class="page-footer font-small blue" style="color: aqua;">
+
+    <div class="footer-copyright text-center py-3" style="margin-top: 200px; color: #000; ">
+        <a> </a>
+        <% if(users.length > 0) { %>
+        <a href="https://www.twitch.tv/" target="_blank"> Contact Us</a>
+        <% } %>
+    </div>
+   
+  
+  </footer>
+    </body>
+</html>
+
+
+
+
+
+
