@@ -25,21 +25,27 @@
     </header>
 
     <main>
-        <form class="product-form" action="/add/add-emp" method="POST">
+        <form class="product-form" action="/edit" method="POST">
+            <!-- <div class="form-control">
+                <label for="name">index</label>
+                <input type="text" name="index"  value="<%= emp.index%>" id="title">
+            </div> -->
+
             <div class="form-control">
                 <label for="name">name</label>
-                <input type="text" name="name" id="title">
+                <input type="text" name="name" value="<%= emp.name%>" id="title">
             </div>
+            
             <div class="form-control">
                 <label for="id">id</label>
-                <input type="text" name="id" id="title">
+                <input type="text" name="id" value="<%= emp.id%>" id="title">
             </div>
             <div class="form-control">
                 <label for="department">department</label>
-                <input type="text" name="department" id="title">
+                <input type="text" name="department" value="<%= emp.department%>" id="title">
             </div>
 
-            <button class="btn" type="submit">Add Employee</button>
+            <button class="btn" type="submit">Edit Employee</button>
         </form>
     </main>
 </body>
