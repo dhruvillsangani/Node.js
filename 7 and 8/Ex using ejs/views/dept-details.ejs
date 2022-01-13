@@ -15,10 +15,10 @@
     <header class="main-header">
         <nav class="main-header__nav">
             <ul class="main-header__item-list">
-                <li class="main-header__item"><a class="active" href="/">Employee Details</a></li>
+                <li class="main-header__item"><a  href="/">Employee Details</a></li>
                 <li class="main-header__item"><a href="/add-emp">Add Employee</a></li>
                 <li class="main-header__item"><a href="/add-department">Add Department</a></li>
-                <li class="main-header__item"><a href="/add">Departmnet Details</a></li>
+                <li class="main-header__item"><a class="active" href="/add">Departmnet Details</a></li>
 
             </ul>
         </nav>
@@ -32,17 +32,9 @@
                     <% for(let product of prods) { %>
                     
                             <div class="card-body">
-                                <p class="card-title">Index:<%= product.index %></p> 
-                                <p class="card-title text-primary">Name:<%= product.name %></p>
-                                <p class="card-title text-primary">ID:<%= product.id %></p>
-                                <p class="card-text text-primary">Department:<%= product.department %></p>
-                                <p><a href="/emp/<%= product.index %>" class="btn">Detail</a></p>
-                                <p><a href="/edit/<%= product.index %>" class="btn">Edit</a></p>
-
-                                <form  action="/delete" method="POST">
-                                    <input type="text" hidden  value="<%= product.index %>" name="index"> 
-                                    <p><button class="btn">Delete</button></p>
-                                </form>
+                                <p class="card-text text-primary"><b>Department:<%= product.department %></b></p>
+                                <p class="card-title text-primary">ID:<%= product.dpId %></p>
+                                
                             </div>
                             <hr>
                             <% } %>
@@ -54,9 +46,7 @@
                 <h1>No Data Found</h1>
             <% } %>
        </main>
-      
-   <!-- <% for(let product of prods) { %> -->
-    <!--  <% } %> -->
+    
 </body>
 
 </html>

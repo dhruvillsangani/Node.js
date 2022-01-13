@@ -14,12 +14,10 @@ const departmentRoutes = require('./routes/dept');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/',(req,res,next)=>{
-//     res.redirect('/index.html')
-// })
+
 
 app.use(adminData.routes);
-app.use(departmentRoutes);
+app.use(departmentRoutes.routes);
 app.use((req, res, next) => {
     res.status(404).render('404',{pageTitle:'Page Not Found'});
 });
