@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Product</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <nav class="main-header__nav">
+            <ul class="main-header__item-list">
+                <li class="main-header__item"><a href="/">Employee Details</a></li>
+                <li class="main-header__item"><a class="active" href="/add-emp">Add Employee</a></li>
+                <li class="main-header__item"><a href="/add-department">Add Department</a></li>
+                <li class="main-header__item"><a href="/add">Departmnet Details</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <form class="product-form" action="/add/add-emp" method="POST">
+     
+            <!-- <div class="form-control">
+                <label for="id">id</label>
+                <input type="text" name="id" id="title">
+            </div> -->
+            <div class="form-control">
+                <label for="name">firstname</label>
+                <input type="text" name="firstname" id="title">
+            </div>
+            <div class="form-control">
+                <label for="name">lastname</label>
+                <input type="text" name="lastname" id="title">
+            </div>
+            <div class="form-control">
+                <label for="department">departmentId</label>
+                <input type="text" name="departmentid" id="title">
+            </div>
+
+            <button class="btn" type="submit">Add Employee</button>
+        </form>
+    </main>
+</body>
+
+</html>
