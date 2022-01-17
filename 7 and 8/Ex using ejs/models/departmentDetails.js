@@ -48,14 +48,5 @@ module.exports  = class departmentDetails {
 
     static fetchAll(cb) {
         getProductsFromFile(cb);
-
-
-    //     fs.readFile(p,(err,fileContent) => {
-    //         if(err) {
-    //             return [];
-    //         }
-    //         return JSON.parse(fileContent)
-    //     })
-    //     return this.dept
      }
 }
