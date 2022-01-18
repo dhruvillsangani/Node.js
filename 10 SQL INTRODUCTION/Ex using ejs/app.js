@@ -15,7 +15,8 @@ const departmentRoutes = require('./routes/dept');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+// var x = path.join("..","..");
+// console.log("x = "+x);
 
 app.use(adminData.routes);
 app.use(departmentRoutes.routes);

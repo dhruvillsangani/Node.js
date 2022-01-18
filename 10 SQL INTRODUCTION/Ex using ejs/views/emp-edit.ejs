@@ -26,23 +26,23 @@
 
     <main>
         <form class="product-form" action="/edit" method="POST">
-            <!-- <div class="form-control">
-                <label for="name">index</label>
-                <input type="text" name="index"  value="<%= emp.index%>" id="title">
-            </div> -->
+           
+               
+                <input type="text" name="id" hidden  value="<%= emp.id%>" id="title">
+            
 
             <div class="form-control">
                 <label for="name">firstname</label>
-                <input type="text" name="name" value="<%= emp.name%>" id="title">
+                <input type="text" name="firstname" value="<%= emp.firstname%>" id="title">
             </div>
             
             <div class="form-control">
                 <label for="id">lastname</label>
-                <input type="text" name="id" value="<%= emp.id%>" id="title">
+                <input type="text" name="lastname" value="<%= emp.lastname%>" id="title">
             </div>
             <div class="form-control">
                 <label for="department">departmentid</label>
-                <input type="text" name="department" value="<%= emp.department%>" id="title">
+                <input type="text" name="departmentid" value="<%= emp.departmentid%>" id="title">
             </div>
 
             <button class="btn" type="submit">Edit Employee</button>

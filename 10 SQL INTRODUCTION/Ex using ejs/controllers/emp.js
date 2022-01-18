@@ -7,7 +7,7 @@ const data = require('../data/employee.json')
   }
 
   exports.postAddEmp = (req, res, next) => {
-    const  Employee = new Employees(null,req.body.name,req.body.id,req.body.department);
+    const  Employee = new Employees(null,req.body.firstname,req.body.lastname,req.body.departmentid);
     Employee.save().then(()=> {
       res.redirect('/');
     })
@@ -16,7 +16,6 @@ const data = require('../data/employee.json')
   }
 
   exports.showEmp = (req, res, next) => {
-    // console.log(data);
     Employees.fetchAll()
     .then(([rows]) => {
       console.log(rows);
@@ -24,8 +23,6 @@ const data = require('../data/employee.json')
     })
     .catch(err => console.log(err));
     
-
-   
    }
 
   exports.showEmpDetails = (req, res, next) => {
@@ -41,30 +38,35 @@ const data = require('../data/employee.json')
   }
 
   exports.editEmpDetails = (req,res,next) => {
-    let id = req.params.employeeIndex;
+    let id = req.params.id;
     uniqueid = id
-    Employees.fetchById(id,empsdetails => {
-     res.render('emp-edit',{emp:empsdetails})
+    Employees.fetchById(id)
+    .then(([rows]) => {
+      res.render('emp-edit',{emp:rows[0]})
     })
+    .catch(err => console.log("err : "+err));
+     
+   
+
+    
   }
 
   exports.postEditEmp = (req,res,next) => {
    
-    console.log("req.body.index"+ uniqueid);
-    const updatedetails = new Employees( uniqueid,req.body.name,req.body.id,req.body.department)
-    updatedetails.save();
-    res.redirect('/');
+    // console.log("req.body.index"+ uniqueid);
+    const updatedetails = new Employees( req.body.id,req.body.firstname,req.body.lastname,req.body.departmentid)
+    updatedetails.edit(req.body.id,req.body.firstname,req.body.lastname,req.body.departmentid)
+    .then(([rows]) => {
+      res.redirect('/');
+    })
+    .catch(err => console.log("err : "+err));
+   
   }
 
   exports.deleteEmp = (req,res,next) => {
     const deletedetails = new Employees(req.body.index)
-    deletedetails.deleteById(req.body.index);
-    // const updatedetails = new Employees( uniqueid,req.body.name,req.body.id,req.body.department)
-
-    // updatedetails.deleteById();
+    deletedetails.deleteById(req.body.departmentid);
     res.redirect('/');
-
-
   }
 
 
