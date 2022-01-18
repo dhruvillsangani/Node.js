@@ -11,8 +11,11 @@ module.exports = class EmployeeDetails {
         this.department = departmentid;
     }
 
-    edit() {
-       
+    edit(id,firstname,lastname,departmentid) {
+        return db.execute(
+            'UPDATE Employee SET firstname= ?,lastname = ?,departmentid = ?  WHERE id = ?',
+            [firstname,lastname,departmentid,id]
+          );
 
     }
    
@@ -23,25 +26,20 @@ module.exports = class EmployeeDetails {
             'INSERT INTO Employee(firstname,lastname,departmentid) VALUES (?,?,?)',
             [this.name,this.id,this.department]
           );
-
-            
-
     }
 
     static fetchAll() {
-
-        return db.execute('SELECT * FROM Employee');
-
+      return db.execute('SELECT * FROM Employee');
     }
 
 
      deleteById(id) {     
        
-
+            return db.execute('DELETE FROM department,Employee USING department INNER JOIN Employee ON department.id = Employee.departmentid WHERE Employee.departmentid= ?',[id])
     }
 
     static fetchById(id) {
-        console.log(db.execute('SELECT * FROM Employee WHERE Employee.id = ?',[id]));
+     
         return db.execute('SELECT * FROM Employee WHERE Employee.id = ?',[id])
     }
 

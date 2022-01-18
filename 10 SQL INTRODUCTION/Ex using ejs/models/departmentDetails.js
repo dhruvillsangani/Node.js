@@ -1,22 +1,6 @@
-const fs =  require('fs');
-const path = require('path');
+const db = require('../util/database');
 
-const p = path.join(
-    path.dirname(process.mainModule.filename),
-    'data',
-    'department.json'
-  );
-  
 
-  const getProductsFromFile = cb => {
-    fs.readFile(p, (err, fileContent) => {
-      if (err) {
-        cb = ([]);
-      } else {
-        cb(JSON.parse(fileContent));
-      }
-    });
-  };
 
 module.exports  = class departmentDetails {
     constructor(department,dpId) {
@@ -26,27 +10,20 @@ module.exports  = class departmentDetails {
     }
 
     save() {
-        getProductsFromFile(dept => {
-            dept.push(this);
-            fs.writeFile(p,JSON.stringify(dept),err =>{
-                console.log(err);
-            });
-        });
-
-    //     const p = path.join(path.dirname(process.mainModule.filename),'data','department.json');
-    //     fs.readFile(p,(err,fileContent)=> {
-    //         let dept = [];
-    //         if(!err) {
-    //             dept = JSON.parse(fileContent);
-    //         }
-    //         dept.push(this);
-    //         fs.writeFile(p,JSON.stringify(dept),(err) =>{
-    //             console.log(err);
-    //         });
-    //     });
+      return db.execute(
+        'INSERT INTO department(name,location) VALUES (?,?)',
+        [this.department,this.dpId]
+      );
     }
 
-    static fetchAll(cb) {
-        getProductsFromFile(cb);
+    static fetchAll() {
+      return db.execute('SELECT * FROM department');
      }
+
+     static deleteById(id) {     
+     console.log("delete ID"+id);  
+      return db.execute('DELETE FROM department WHERE id = ?',[id])
+    }
+
+
 }

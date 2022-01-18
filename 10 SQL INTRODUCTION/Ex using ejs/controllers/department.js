@@ -7,17 +7,37 @@ exports.getDepartment = (req,res,next) => {
 }
 
 exports.postDepartment = (req,res,next) => {
-    const  departmentes = new department(req.body.department,req.body.dpId);
-    departmentes.save();
-    res.redirect('/add');
+    const  departmentes = new department(req.body.name,req.body.location);
+    departmentes.save()
+    .then(() => {
+        res.redirect('/add');
+      })
+      .catch(err => console.log(err));
+
 }
 
 exports.showdepartment = (req,res,next) => {
-    // console.log("This ...."+deptdata);
-    department.fetchAll(depts => {
+ 
+    department.fetchAll()
+    .then(([depts]) => {
         res.render('dept-details',{prods:depts})
-    });
-    // res.render('dept-details',{prods:deptdata})
+      })
+      .catch(err => console.log(err));
+    
+    
+}
+
+exports.deleteDept = (req,res,next) => {
+console.log("req.params.id"+req.params.id);
+    department.deleteById(req.params.id)
+    .then( (result) => {
+        console.log("result : "+result);
+        res.redirect('/');
+    })
+    .catch(err => {
+        console.log(err);
+    })
+
 }
 
 

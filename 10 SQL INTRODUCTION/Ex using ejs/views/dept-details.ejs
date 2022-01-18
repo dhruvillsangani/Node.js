@@ -32,9 +32,14 @@
                     <% for(let product of prods) { %>
                     
                             <div class="card-body">
-                                <p class="card-text text-primary"><b>Department:<%= product.department %></b></p>
-                                <p class="card-title text-primary">ID:<%= product.dpId %></p>
-                                
+                                <p class="card-text text-primary"><b>id: <%= product.id %></b></p>
+                                <p class="card-text text-primary"><b>Department: <%= product.name %></b></p>
+                                <p class="card-title text-primary"><b>Location: <%= product.location %></b></p>
+                                <p><a href="/delete/<%= product.id %>" class="btn">delete</a></p>
+                              
+                                <!-- <form  action="/delete/dept" method="POST">
+                                    <input type="text" hidden  value="<%= product.id %>" name="id"> 
+                                    <p><button class="btn">Delete</button></p> -->
                             </div>
                             <hr>
                             <% } %>
