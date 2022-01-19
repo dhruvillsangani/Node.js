@@ -8,6 +8,7 @@ exports.getDepartment = (req,res,next) => {
 
 exports.postDepartment = (req,res,next) => {
     const  departmentes = new department(req.body.name,req.body.location);
+    
     departmentes.save()
     .then(() => {
         res.redirect('/add');
@@ -28,15 +29,16 @@ exports.showdepartment = (req,res,next) => {
 }
 
 exports.deleteDept = (req,res,next) => {
-console.log("req.params.id"+req.params.id);
-    department.deleteById(req.params.id)
-    .then( (result) => {
-        console.log("result : "+result);
-        res.redirect('/');
-    })
-    .catch(err => {
-        console.log(err);
-    })
+
+
+   const deletes = new department(req.body.id)
+    deletes.deleteById(req.body.id)
+       
+        res.redirect('/add');
+
+    // console.log("id ="+req.body.id);
+    // deletes.deleteById(req.body.id)
+    // res.redirect('/');
 
 }
 

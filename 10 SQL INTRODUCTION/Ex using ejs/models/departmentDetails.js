@@ -11,19 +11,21 @@ module.exports  = class departmentDetails {
 
     save() {
       return db.execute(
-        'INSERT INTO department(name,location) VALUES (?,?)',
+        'INSERT INTO department(name,place) VALUES (?,?)',
         [this.department,this.dpId]
       );
     }
+        deleteById(id) {     
+      console.log("delete ID"+id);  
+      db.execute('DELETE FROM Employee  WHERE  departmentid= ?',[id])
+      db.execute('DELETE FROM department  WHERE id= ?',[id])
+     }
 
     static fetchAll() {
       return db.execute('SELECT * FROM department');
      }
 
-     static deleteById(id) {     
-     console.log("delete ID"+id);  
-      return db.execute('DELETE FROM department WHERE id = ?',[id])
-    }
+   
 
 
 }

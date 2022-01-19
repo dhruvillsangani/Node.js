@@ -11,7 +11,7 @@ router.get('/add-department', departmentController.getDepartment);
 
 router.post('/add/add-dep', departmentController.postDepartment);
 
-router.post('/delete/:id',departmentController.deleteDept)
+router.post('/delete/del',departmentController.deleteDept)
 // router.post('/delete/dept',departmentController.deleteDept)
 
 

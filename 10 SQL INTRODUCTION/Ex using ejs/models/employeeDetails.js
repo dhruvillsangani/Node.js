@@ -34,8 +34,10 @@ module.exports = class EmployeeDetails {
 
 
      deleteById(id) {     
-       
-            return db.execute('DELETE FROM department,Employee USING department INNER JOIN Employee ON department.id = Employee.departmentid WHERE Employee.departmentid= ?',[id])
+       console.log(id);
+             db.execute('DELETE FROM Employee  WHERE  id= ?',[id])
+            //   db.execute('DELETE FROM department  WHERE id= ?',[id])
+            
     }
 
     static fetchById(id) {
