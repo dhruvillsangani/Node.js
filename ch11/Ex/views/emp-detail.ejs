@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Product</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+  
+    <header class="main-header">
+        <nav class="main-header__nav">
+            <ul class="main-header__item-list">
+                <li class="main-header__item"><a class="active" href="/">Employee Details</a></li>
+                <li class="main-header__item"><a href="/add-emp">Add Employee</a></li>
+                <li class="main-header__item"><a href="/add-department">Add Department</a></li>
+                <li class="main-header__item"><a href="/add">Departmnet Details</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+
+        <main>
+                <div class="card">
+                           
+                            <div class="card-body">
+                                <p class="card-title">Id:<%= emp.id %></p> </p>
+                                <p class="card-title text-primary">First Name:<%= emp.firstname %></p></p>
+                                <p class="card-title text-primary">Last Name:<%= emp.lastname %></p>
+                                <p class="card-text text-primary">departmentid:<%= emp.departmentid %></p>
+                            
+                            </div>
+                            <hr>
+                           
+                        </div>
+                        
+                   
+                </div>
+           
+       </main>
+      
+</body>
+
+</html>

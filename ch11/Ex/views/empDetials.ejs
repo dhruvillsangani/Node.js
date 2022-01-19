@@ -15,10 +15,10 @@
     <header class="main-header">
         <nav class="main-header__nav">
             <ul class="main-header__item-list">
-                <li class="main-header__item"><a  href="/">Employee Details</a></li>
+                <li class="main-header__item"><a class="active" href="/">Employee Details</a></li>
                 <li class="main-header__item"><a href="/add-emp">Add Employee</a></li>
                 <li class="main-header__item"><a href="/add-department">Add Department</a></li>
-                <li class="main-header__item"><a class="active" href="/add">Departmnet Details</a></li>
+                <li class="main-header__item"><a href="/add">Departmnet Details</a></li>
 
             </ul>
         </nav>
@@ -32,12 +32,14 @@
                     <% for(let product of prods) { %>
                     
                             <div class="card-body">
-                                <p class="card-text text-primary"><b>id: <%= product.id %></b></p>
-                                <p class="card-text text-primary"><b>Department: <%= product.name %></b></p>
-                                <p class="card-title text-primary"><b>Location: <%= product.place %></b></p>
-                                <!-- <p><a href="/delete/<%= product.id %>" class="btn">delete</a></p> -->
-                              
-                                <form  action="/delete/del" method="POST">
+                                <p class="card-title">Id:<b><%= product.id %></b></p> 
+                                <p class="card-title text-primary">First Name:<b><%= product.firstname %></b></p>
+                                <p class="card-title text-primary">Last Name:<b><%= product.lastname %></b></p>
+                                <p class="card-text text-primary">Department ID:<b><%= product.departmentid %></b></p>
+                                <p><a href="/emp/<%= product.id %>" class="btn">Detail</a></p>
+                                <p><a href="/edit/<%= product.id %>" class="btn">Edit</a></p>
+
+                                <form  action="/delete" method="POST">
                                     <input type="text" hidden  value="<%= product.id %>" name="id"> 
                                     <p><button class="btn">Delete</button></p>
                                 </form>
@@ -52,7 +54,9 @@
                 <h1>No Data Found</h1>
             <% } %>
        </main>
-    
+      
+   <!-- <% for(let product of prods) { %> -->
+    <!--  <% } %> -->
 </body>
 
 </html>
