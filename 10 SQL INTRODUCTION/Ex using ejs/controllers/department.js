@@ -34,7 +34,7 @@ exports.deleteDept = (req,res,next) => {
    const deletes = new department(req.body.id)
     deletes.deleteById(req.body.id)
        
-        res.redirect('/add');
+        res.redirect('/');
 
     // console.log("id ="+req.body.id);
     // deletes.deleteById(req.body.id)
