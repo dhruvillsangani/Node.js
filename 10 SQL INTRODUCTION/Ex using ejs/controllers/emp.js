@@ -65,6 +65,7 @@ const data = require('../data/employee.json')
 
   exports.deleteEmp = (req,res,next) => {
     const deletedetails = new Employees(req.body.index)
+    console.log(req.body.departmentid);
     deletedetails.deleteById(req.body.departmentid);
     res.redirect('/');
   }
