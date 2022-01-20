@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Product</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+  
+    <header class="main-header">
+        <nav class="main-header__nav">
+            <ul class="main-header__item-list">
+                <li class="main-header__item"><a class="active" href="/">Employee Details</a></li>
+                <li class="main-header__item"><a href="/add-emp">Add Employee</a></li>
+                <li class="main-header__item"><a href="/add-department">Add Department</a></li>
+                <li class="main-header__item"><a href="/add">Departmnet Details</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+
+        <main>
+            <% if(prods.length > 0) { %>
+                <div class="card">
+                    <div class="card-header">ABC University
+                    <% for(let product of prods) { %>
+                    
+                            <div class="card-body">
+                                <p class="card-title">Id:<b><%= product._id %></b></p> 
+                                <p class="card-title text-primary">First Name:<b><%= product.firstname %></b></p>
+                                <p class="card-title text-primary">Last Name:<b><%= product.lastname %></b></p>
+                                <p class="card-text text-primary">Department ID:<b><%= product.departmentid %></b></p>
+                                <p><a href="/emp/<%= product._id %>" class="btn">Detail</a></p>
+                                <p><a href="/edit/<%= product._id %>" class="btn">Edit</a></p>
+
+                                <form  action="/delete" method="POST">
+                                    <input type="text" hidden  value="<%= product._id %>" name="departmentid"> 
+                                    <p><button class="btn">Delete</button></p>
+                                </form>
+                            </div>
+                            <hr>
+                            <% } %>
+                        </div>
+                        
+                   
+                </div>
+            <% } else {%>
+                <h1>No Data Found</h1>
+            <% } %>
+       </main>
+      
+   <!-- <% for(let product of prods) { %> -->
+    <!--  <% } %> -->
+</body>
+
+</html>
