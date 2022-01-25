@@ -3,6 +3,7 @@ const Student = require('../models/student_details')
 const certificate = require('../models/certificate')
 
 exports.getStudents = (req,res,next) => {
+    // For add student forms 
     certificate.fetchAll()
     .then((result) => {
         console.log(result);
@@ -28,30 +29,59 @@ exports.showstudent = (req,res,next) => {
  
     Student.fetchAll()
     .then((result) => {
-        for(let item of result) {
-            console.log(item.certificateid);
-            certificate.fetchAll(item.certificateid)
-        }
+     
         res.render('showStudents',{prods:result})
-      })
-      .catch(err => console.log(err));
+
+    }).catch(err => {
+        console.log(err);
+    })
+
+     
+}
+           
+       
+        // res.render('showStudents',{prods:result})
     
-    
+exports.showStudentDetails = (req,res,next) => {
+    let id = req.params.id;
+
+    Student.fetchById(id)
+    .then((result) => {
+      res.render('student-detail',{student:result})
+    })
+    .catch(err => console.log("err : "+err));
 }
 
-// exports.deleteDept = (req,res,next) => {
+exports.EditStudentDetails = (req,res,next) =>{
+    let id = req.params.id;
+ 
+    Student.fetchById(id)
+    .then((result) => {
+      res.render('student-edit',{emp:result})
+    })
+    .catch(err => console.log("err : "+err));
+}
 
+exports.postEditStudentDetails = (req,res,next) => {
+    const updatedetails = new Student( req.body.id,req.body.name,req.body.surname,req.body.certificateid)
+    updatedetails.edit(req.body.id,req.body.name,req.body.surname,req.body.certificateid)
+   
+      res.redirect('/');
+  
+  
+}
 
-//    const deletes = new department(req.body.id)
-//     deletes.deleteById(req.body.id)
+exports.deleteStudent = (req,res,next) => {
+
+   Student.deleteById(req.body.id)
        
-//         res.redirect('/');
+        res.redirect('/');
 
-//     // console.log("id ="+req.body.id);
-//     // deletes.deleteById(req.body.id)
-//     // res.redirect('/');
+    // console.log("id ="+req.body.id);
+    // deletes.deleteById(req.body.id)
+    // res.redirect('/');
 
-// }
+}
 
 
 

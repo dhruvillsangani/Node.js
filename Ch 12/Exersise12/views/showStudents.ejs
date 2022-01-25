@@ -33,11 +33,12 @@
                                 <p class="card-text text-primary"><b>Name: <%= product.name %></b></p>
                                 <p class="card-title text-primary"><b>Surname: <%= product.surname %></b></p>
                                 <p class="card-title text-primary"><b>Certificates: <%= product.certificateid %></b></p>
-
-                                <!-- <form  action="/delete/del" method="POST">
-                                    <input type="text" hidden  value="<%= product.id %>" name="id"> 
+                                <p><a href="/student/<%= product._id %>" class="btn">Detail</a></p>
+                                <p><a href="/edit/<%= product._id %>" class="btn">Edit</a></p>
+                                <form  action="/delete" method="POST">
+                                    <input type="text" hidden  value="<%= product._id %>" name="id"> 
                                     <p><button class="btn">Delete</button></p>
-                                </form> -->
+                                </form>
                             </div>
                             <hr>
                             <% } %>
