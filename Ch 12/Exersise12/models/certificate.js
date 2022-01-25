@@ -23,6 +23,20 @@ module.exports = class Certificates {
         console.log(err);
       });
     }
-
+ 
+    static findById(id) {
+      console.log("findById(id) = " +id);
+      const db = getDb();
+      return db.collection('certificate')
+      .find({_id: new mongodb.ObjectId(id)})
+      .toArray()
+      .then(certificate => {
+      console.log(certificate);
+      return certificate;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+    }
     
 }

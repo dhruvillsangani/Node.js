@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/product.css">
 </head>
 
-<body style="color: rgb(18, 136, 240);">
+<body>
     <header class="main-header">
         <nav class="main-header__nav">
             <ul class="main-header__item-list">
@@ -23,32 +23,27 @@
     </header>
 
     <main>
-        <form class="product-form" action="/add/add-student" method="POST">
-     
+        <form class="product-form" action="/edit" method="POST">
            
-            <div class="form-control">
-                <label for="name">Name: </label>
-                <input type="text" name="name" id="title">
-            </div>
-            <div class="form-control">
-                <label for="name">Surname: </label>
-                <input type="text" name="surname" id="title">
-            </div>
-           
-            <div class="form-control">
-                <label for="department">Certificates</label>
                
-                    <select name="certificateid" multiple>
-                        <% for(let product of prods) { %>
-                   
-                            <option selected value="<%= product._id %>" ><%= product.name %></option>
-                            <% } %>
-                        </select>
-              
-              
+                <input type="text" name="id" hidden  value="<%= emp._id%>" id="title">
+            
+
+            <div class="form-control">
+                <label for="name">name</label>
+                <input type="text" name="name" value="<%= emp.name%>" id="title">
             </div>
-           
-            <button class="btn" type="submit">Add Student</button>
+            
+            <div class="form-control">
+                <label for="id">surname</label>
+                <input type="text" name="surname" value="<%= emp.surname%>" id="title">
+            </div>
+            <div class="form-control">
+                <label for="department">departmentid</label>
+                <input type="text" name="certificateid" value="<%= emp.certificateid%>" id="title">
+            </div>
+
+            <button class="btn" type="submit">Edit Employee</button>
         </form>
     </main>
 </body>

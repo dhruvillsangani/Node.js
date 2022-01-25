@@ -63,7 +63,7 @@ module.exports = class EmployeeDetails {
         .find({ _id: new mongodb.ObjectId(id) })
         .next()
         .then(employees => {
-          console.log(employees);
+          console.log(employees); 
           return employees;
         })
         .catch(err => {

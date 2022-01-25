@@ -12,7 +12,11 @@ router.get('/',studentController.showstudent)
 // router.post('/delete/del',departmentController.deleteDept)
 // // router.post('/delete/dept',departmentController.deleteDept)
 
+router.get('/student/:id',studentController.showStudentDetails)
+router.get('/edit/:id',studentController.EditStudentDetails)
+router.post('/edit',studentController.postEditStudentDetails)
 
-// router.get('/add',departmentController.showdepartment);
+
+ router.post('/delete',studentController.deleteStudent);
 
 exports.routes = router;
