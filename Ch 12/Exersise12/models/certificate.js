@@ -8,7 +8,6 @@ module.exports = class Certificates {
         
     }
 
-    
 
     static fetchAll() {
         const db = getDb();

@@ -14,7 +14,7 @@ exports.getStudents = (req,res,next) => {
 }
 
 exports.postStudent= (req,res,next) => {
-    const students = new Student(req.body.name,req.body.surname,req.body.certificateid);
+    const students = new Student(req.body.name,req.body.surname,[req.body.certificateid]);
     
     students.save()
     .then((result) => {
@@ -28,13 +28,13 @@ exports.postStudent= (req,res,next) => {
 exports.showstudent = (req,res,next) => {
  
     Student.fetchAll()
-    .then(result => {
+    .then((result) => {
+     
         res.render('showStudents',{prods:result})
 
     }).catch(err => {
         console.log(err);
     })
-    
 
      
 }
