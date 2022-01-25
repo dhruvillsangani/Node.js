@@ -12,7 +12,6 @@ router.get('/',studentController.showstudent)
 // router.post('/delete/del',departmentController.deleteDept)
 // // router.post('/delete/dept',departmentController.deleteDept)
 
-
 // router.get('/add',departmentController.showdepartment);
 
 exports.routes = router;

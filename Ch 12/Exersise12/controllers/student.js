@@ -13,7 +13,7 @@ exports.getStudents = (req,res,next) => {
 }
 
 exports.postStudent= (req,res,next) => {
-    const students = new Student(req.body.name,req.body.surname,req.body.certificateid);
+    const students = new Student(req.body.name,req.body.surname,[req.body.certificateid]);
     
     students.save()
     .then((result) => {
@@ -29,7 +29,8 @@ exports.showstudent = (req,res,next) => {
     Student.fetchAll()
     .then((result) => {
         for(let item of result) {
-            console.log("fROM HERE =>  "+item.certificateid);
+            console.log(item.certificateid);
+            certificate.fetchAll(item.certificateid)
         }
         res.render('showStudents',{prods:result})
       })

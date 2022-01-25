@@ -1,9 +1,6 @@
 const mongodb = require('mongodb');
 const getDb = require('../util/database').getDb;
 
-
-
-
 module.exports = class EmployeeDetails {
     constructor( firstname, lastname, departmentid) {
        
