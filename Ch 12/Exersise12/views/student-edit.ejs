@@ -39,8 +39,11 @@
                 <input type="text" name="surname" value="<%= emp.surname%>" id="title">
             </div>
             <div class="form-control">
-                <label for="department">departmentid</label>
-                <input type="text" name="certificateid" value="<%= emp.certificateid%>" id="title">
+                <% for(let ele of emp.certificateid) { %>
+                <label for="department">DepartmentId : </label>
+                <input type="text" name="certificateid" value="<%= ele%>" id="title">
+                <br>
+                <% } %>
             </div>
 
             <button class="btn" type="submit">Edit Employee</button>

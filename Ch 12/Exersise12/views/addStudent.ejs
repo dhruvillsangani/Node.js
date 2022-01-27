@@ -24,7 +24,10 @@
 
     <main>
         <form class="product-form" action="/add/add-student" method="POST">
-     
+            <div class="form-control">
+                <label for="name">Id : </label>
+                <input type="text" name="id" id="title">
+            </div>
            
             <div class="form-control">
                 <label for="name">Name: </label>
@@ -45,7 +48,21 @@
                             <% } %>
                         </select>
               
-              
+            </div>
+
+            <div class="form-control">
+                <label for="name">English : </label>
+                <input type="number" name="english" id="title">
+            </div>
+
+            <div class="form-control">
+                <label for="name">Maths : </label>
+                <input type="number" name="maths" id="title">
+            </div>
+
+            <div class="form-control">
+                <label for="name">Science : </label>
+                <input type="number" name="science" id="title">
             </div>
            
             <button class="btn" type="submit">Add Student</button>
