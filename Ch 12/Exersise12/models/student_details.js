@@ -96,18 +96,16 @@ static findOne(id) {
 
 static fetchByCertificateId(id) {
   const db = getDb();
-  return db
-    .collection('students')
-    // .find({certificateid : {"$in" : [id]}})
-    .find({"certificateid" : id })
-     .next()
-    .then(students => {
-      console.log(students);
-      return students;
-    })
-    .catch(err => {
-      console.log(err);
-    });
+  return db.collection('students')
+  .find({certificateid : id})
+  .toArray()
+  .then(students => {   
+  console.log(students);
+  return students;
+})
+.catch(err => {
+  console.log(err);
+});
  }
     
 }
