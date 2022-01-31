@@ -15,8 +15,7 @@ const studentSchema = new Schema({
     required:true
   },
   certificateid : [{
-    type: Schema.Types.ObjectId,
-    ref: 'Certificate',
+    type: String,
     required: true
   }],
  

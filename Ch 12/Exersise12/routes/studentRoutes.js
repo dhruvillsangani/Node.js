@@ -19,6 +19,6 @@ router.post('/edit',studentController.postEditStudentDetails)
 router.post('/delete',studentController.deleteStudent);
 //  router.get('/add',departmentController.showdepartment);
 router.get('/marks/:id',studentController.postmarks);
-
+router.get('/persentage/:persentage',studentController.getByPersentage)
 router.get('/certificate/:id',studentController.postcertificate);
 exports.routes = router;

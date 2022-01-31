@@ -110,38 +110,49 @@ exports.deleteStudent = (req,res,next) => {
 
 
 
+exports.getByPersentage = (req, res, next) => {
 
-
-// // for learning purpose 
-// exports.postmarks =  (req,res,next) => { 
-//     let id = req.params.id;
-    
-
-//     Marks.findById(id)
-//     .then((result) => {
-//          var result1 = result;
-//         //  res.json(result);
-//         res.render('studentByMarks',{student:result})
-//      console.log(result1[0].studentId);
-//     })
-    
-//     .catch(err => console.log("err : "+err));
-
-// }
-
-
-// exports.postcertificate =  (req,res,next) => {
-//     let id = req.params.id;
-//     Student.fetchByCertificateId(id)
-
-//     .then((result) => {
-//         console.log(result);
+    let persentage = req.params.persentage;
+    Marks.aggregate([
+        {$unwind:"$subjects"},
+        { $project: {studentId:1 , subjects:1,  total: { $add: [ "$subjects.English", "$subjects.Maths","$subjects.Science" ] } } },
+        { $project: {studentId:1 , subjects:1, "percent":{ $divide: [ "$total", 3 ] } }},
        
-//         res.json(result)
-//       })
-//       .catch(err => console.log(err));
+    ])
+     
+      .then(marks => {
+        // console.log(marks);
+        const arr = [];    
+            for (i = 0; i < marks.length; i++) {
+                console.log(marks[i]);
+                if (persentage == parseInt(marks[i].percent)) {
+                    arr.push(marks[i]);
+                }
+               
+            }
 
-// } 
+            res.json(arr);
+
+
+   
+    }) 
+
+}
+
+
+exports.postcertificate =  (req,res,next) => {
+    let id = req.params.id;
+    Student.find({certificateid:id})
+   
+
+    .then((result) => {
+        console.log(result);
+       
+        res.json(result)
+      })
+      .catch(err => console.log(err));
+
+} 
 
 exports.getStudentByMarks =  (req,res,next) => {
  let arr = [];

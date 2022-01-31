@@ -20,5 +20,7 @@ router.get('/studentbymarks',studentController.getStudentByMarks)
 // router.get('/marks/:id',studentController.postmarks);
 router.get('/avgmaths',studentController.avgMaths)
 router.get('/top',studentController.topThreeStudents)
-// router.get('/certificate/:id',studentController.postcertificate);
+router.get('/certificate/:id',studentController.postcertificate);
+router.get('/persentage/:persentage',studentController.getByPersentage)
+
 exports.routes = router;
