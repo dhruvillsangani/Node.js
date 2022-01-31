@@ -2,9 +2,9 @@ const mongodb = require('mongodb');
 const getDb = require('../util/database').getDb;
 
 module.exports = class Marks {
-    constructor(persentage,subject1,subject2,subject3,studentid) {
+    constructor(subject1,subject2,subject3,studentid) {
        
-        this.persentage =persentage,
+        
         this.subject1 = subject1,
         this.subject2 = subject2,
         this.subject3 = subject3,
@@ -14,8 +14,9 @@ module.exports = class Marks {
 
     save() {
         const db = getDb();
-        return db.collection('marks').insertOne({
-           persentage:this.persentage,
+        return db.collection('marks')
+        .insertOne({
+           
            subjects :[{
                English:this.subject1,
                Maths:this.subject2,
@@ -64,6 +65,27 @@ module.exports = class Marks {
     });
     }
 
+   static fetchByPersentage(persentage){
+      
+      const db = getDb();
+      return db.collection('marks').aggregate([
+        {$unwind:"$subjects"},
+        { $project: {studentId:1 , subjects:1,  total: { $add: [ "$subjects.English", "$subjects.Maths","$subjects.Science" ] } } },
+        { $project: {studentId:1 , subjects:1, "percent":{ $divide: [ "$total", 3 ] } }},
+       
+    ])
+      .toArray()
+      .then(marks => {
+        console.log(marks);
+        return marks;
+   
+    })
+    .catch(err => {
+      console.log(err);
+    })
+   
+     
+    }
    
     
 }

@@ -8,13 +8,9 @@ app.set('views' , 'views');
 
 
 const studentData = require('./routes/studentRoutes');
-const { connected } = require('process');
 
-
- 
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(studentData.routes);
 
