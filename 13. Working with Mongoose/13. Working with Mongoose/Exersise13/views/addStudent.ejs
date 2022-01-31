@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Product</title>
+    <link type="text/css" rel="stylesheet" href="/css/main.css">
+    <link type="text/css" rel="stylesheet" href="/css/forms.css">
+    <link type="text/css" rel="stylesheet" href="/css/product.css">
+</head>
+
+<body style="color: rgb(18, 136, 240);">
+    <header class="main-header">
+        <nav class="main-header__nav">
+            <ul class="main-header__item-list">
+                <li class="main-header__item"><a href="/">Student Details</a></li>
+                <li class="main-header__item"><a href="/add-student">Add Student</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <form class="product-form" action="/add/add-student" method="POST">
+            <div class="form-control">
+                <label for="name">Id : </label>
+                <input type="text" name="id" id="title">
+            </div>
+           
+            <div class="form-control">
+                <label for="name">Name: </label>
+                <input type="text" name="name" id="title">
+            </div>
+            <div class="form-control">
+                <label for="name">Surname: </label>
+                <input type="text" name="surname" id="title">
+            </div>
+           
+            <div class="form-control">
+                <label for="department">Certificates</label>
+               
+                    <select name="certificateid" multiple>
+                        <% for(let product of prods) { %>
+                   
+                            <option selected value="<%= product.name%>" ><%= product.name %></option>
+                            <% } %>
+                        </select>
+              
+            </div>
+
+            <div class="form-control">
+                <label for="name">English : </label>
+                <input type="number" name="english" id="title">
+            </div>
+
+            <div class="form-control">
+                <label for="name">Maths : </label>
+                <input type="number" name="maths" id="title">
+            </div>
+
+            <div class="form-control">
+                <label for="name">Science : </label>
+                <input type="number" name="science" id="title">
+            </div>
+           
+            <button class="btn" type="submit">Add Student</button>
+        </form>
+    </main>
+</body>
+
+</html>

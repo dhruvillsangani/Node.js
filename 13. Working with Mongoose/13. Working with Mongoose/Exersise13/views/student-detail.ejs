@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Product</title>
+    <link type="text/css" rel="stylesheet" href="/css/main.css">
+    <link type="text/css" rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+  
+    <header class="main-header">
+        <nav class="main-header__nav">
+            <ul class="main-header__item-list">
+                <li class="main-header__item"><a href="/">Student Details</a></li>
+                <li class="main-header__item"><a href="/add-student">Add Student</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+
+        <main>
+                <div class="card">
+                           
+                            <div class="card-body">
+                                <p class="card-title">Id: <%= student._id %> </p> </p>
+                                <p class="card-title text-primary">name: <%= student.name %></p></p>
+                                <p class="card-title text-primary">surname: <%= student.surname %></p>
+                                <p class="card-text text-primary">certificateid: <%= student.certificateid %></p>
+                            
+                            </div>
+                            <hr>
+                           
+                        </div>
+                        
+                   
+                </div>
+           
+       </main>
+      
+</body>
+
+</html>

@@ -55,7 +55,6 @@ module.exports = class StudentDetails {
   const db = getDb();
   return db
     .collection('students')
-    // .find({ _id: new mongodb.ObjectId(id) })
     .find({ _id: id })
     .next()
     .then(students => {
