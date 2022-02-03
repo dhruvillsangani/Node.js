@@ -1,5 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Product</title>
+    <link type="text/css" rel="stylesheet" href="/css/main.css">
+    <link type="text/css" rel="stylesheet" href="/css/forms.css">
+    <link type="text/css" rel="stylesheet" href="/css/product.css">
 
 
+</head>
+
+<body style="color: rgb(18, 136, 240);">
+    <header class="main-header">
+        <nav class="main-header__nav">
+            <ul class="main-header__item-list">
+                <li class="main-header__item"><a href="/">Student Details</a></li>
+                <li class="main-header__item"><a href="/add-student">Add Student</a></li>
+                <li class="main-header__item"><a href="/login">Login</a></li>
+                <li class="main-header__item"><a href="/signup">Signup</a></li>
+                <li class="main-header__item"><a href="/logout">Logout</a></li>
+
+
+            </ul>
+        </nav>
+    </header>
     <main>
         <form class="login-form" action="/signup" method="POST">
             <div class="form-control">
@@ -14,7 +41,8 @@
                 <label for="confirmPassword">Confirm Password</label>
                 <input type="password" name="confirmPassword" id="confirmPassword">
             </div>
-            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
             <button class="btn" type="submit">Signup</button>
         </form>
     </main>
+</body>
+</html>

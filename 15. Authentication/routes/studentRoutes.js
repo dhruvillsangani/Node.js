@@ -2,15 +2,14 @@
 const path = require('path');
 const express = require('express');
 const studentController = require('../controllers/student');
+const isAuth = require('../middleware/is-auth');
 const router = express.Router();
 
-router.get('/add-student', studentController.getStudents);
+router.get('/add-student',isAuth, studentController.getStudents);
 
 router.post('/add/add-student', studentController.postStudent);
 
 router.get('/',studentController.showstudent)
-
-
 
 router.get('/student/:id',studentController.showStudentDetails)
 router.get('/edit/:id',studentController.EditStudentDetails)
