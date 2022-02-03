@@ -6,7 +6,7 @@
     <body>
 <header>
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBePYKCTc5w4r93fq7rlGFyRJ18ppm8lTIBQ&usqp=CAU" width="30" height="30" class="d-inline-block align-top" alt="">
           HOME
         </a>
@@ -27,24 +27,14 @@
         <% }%>
     </nav>  
 </header>
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <div class="top" style="margin-top: 100px;">
     <p>Title: xyz</p>
     <p>Description: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt doloribus optio rerum non minima veritatis? Quos dolore sit ad nostrum sed corporis culpa nihil, consequatur nesciunt porro maxime ratione suscipit?</p>
 </div>
-
-
-<footer class="page-footer font-small blue" style="color: aqua;">
-
-    <div class="footer-copyright text-center py-3" style="margin-top: 200px; color: #000; ">
-        <a> </a>
-        <% if(users.length > 0) { %>
-        <a href="https://www.twitch.tv/" target="_blank"> Contact Us</a>
-        <% } %>
-    </div>
-   
-  
-  </footer>
+<% if(users.length > 0 || path === '/') { %>
+<%- include('footer.ejs') %>
+<% } %>
     </body>
 </html>
 
