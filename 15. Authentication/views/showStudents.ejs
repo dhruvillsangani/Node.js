@@ -18,13 +18,16 @@
                 <li class="main-header__item"><a href="/">Student Details</a></li>
                 <% if(isAuthenticated) { %>
                 <li class="main-header__item"><a href="/add-student">Add Student</a></li>
+                <li class="main-header__item"><a href="/logout">Logout</a></li>
                 <% } %>
 
                 <% if(!isAuthenticated) { %>
-                <li class="main-header__item"><a href="/login">Login</a></li>
-                <% } %>
-                <li class="main-header__item"><a href="/logout">Logout</a></li>
-                <li class="main-header__item"><a href="/signup">Signup</a></li>
+                    <li class="main-header__item"><a href="/login">Login</a></li>
+                    <li class="main-header__item"><a href="/signup">Signup</a></li>
+                   
+                    <% } %>
+               
+               
 
             </ul>
         </nav>

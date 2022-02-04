@@ -106,3 +106,8 @@ main {
   background-color: #00695c;
   color: white;
 }
+.user-message--error {
+  border-color: red;
+  background: rgb(255, 176, 176);
+  color: red;
+}

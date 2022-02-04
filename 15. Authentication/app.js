@@ -5,6 +5,8 @@ const app = express();
 const mongoose =  require('mongoose');
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
+const flash = require('connect-flash');
+
 
 const store = new MongoDBStore({
   uri:'mongodb+srv://dhruvil:123@cluster0.ldpbz.mongodb.net/studentmanagement1?retryWrites=true&w=majority',
@@ -27,7 +29,7 @@ app.use(session({
   store:store
  }));
 
-
+app.use(flash());
 app.use(studentData.routes);
 app.use(authRoutes);
 

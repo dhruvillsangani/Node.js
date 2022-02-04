@@ -21,30 +21,22 @@
                 <li class="main-header__item"><a href="/add-student">Add Student</a></li>
                 <li class="main-header__item"><a href="/login">Login</a></li>
                 <li class="main-header__item"><a href="/signup">Signup</a></li>
-                <% if(isAuthenticated) { %>   
-                    <li class="main-header__item"><a href="/logout">Logout</a></li>
-                    <% } %>
+                
 
 
             </ul>
         </nav>
-    </header>
-    <main>
-        <form class="login-form" action="/signup" method="POST">
-            <div class="form-control">
-                <label for="email">E-Mail</label>
-                <input type="email" name="email" id="email">
-            </div>
-            <div class="form-control">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password">
-            </div>
-            <div class="form-control">
-                <label for="confirmPassword">Confirm Password</label>
-                <input type="password" name="confirmPassword" id="confirmPassword">
-            </div>
-            <button class="btn" type="submit">Signup</button>
-        </form>
-    </main>
-</body>
-</html>
+
+<main>
+    <% if (errorMessage) { %>
+        <div class="user-message user-message--error"><%= errorMessage %></div>
+    <% } %>
+    <form class="login-form" action="/reset" method="POST">
+        <div class="form-control">
+            <label for="email">E-Mail</label>
+            <input type="email" name="email" id="email">
+        </div>
+       
+        <button class="btn" type="submit">Reset Password</button>
+    </form>
+</main>
